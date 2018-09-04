@@ -1,0 +1,16 @@
+
+{
+
+"data": {
+      "addItem": {
+          "exp": [],
+          "inc": []
+      },
+      "total": {
+          "inc": 0,
+          "exp": 0
+      },
+      "budget": 0,
+      "percentage": -1
+  }
+}

@@ -1,0 +1,32 @@
+<a routerLink="next">dsdsd</a>
+<loader *ngIf="!showLoader"></loader>
+<div class="row">
+  <div class="col-md-12">
+    <button class="btn btn-success" (click)="showForm($event)">{{buttonTxt}} </button>
+    <div style="padding: 20px 0;">
+      <addRecipe *ngIf="addForm"></addRecipe>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="listData; else loading">
+      <recipeitem></recipeitem>
+      <!-- <recipeitem 
+      [listData]='listData' 
+      (sharaList)="loadData = $event">
+      </recipeitem> -->
+    </div>
+
+    <ng-template #loading>  {{message}}</ng-template>
+  </div>
+
+  <div class="col-md-6">
+    <div *ngIf="!loadData">Please select the ist</div>
+    <recipelist 
+    *ngIf="loadData" 
+    [listgroup]="loadData">
+  </recipelist>
+
+  </div>
+
+</div>

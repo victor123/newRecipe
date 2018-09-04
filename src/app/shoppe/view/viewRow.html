@@ -1,0 +1,31 @@
+<loader *ngIf="!showLoader"></loader> 
+
+<table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of getData">
+        <td>{{list.id}}</td>
+        <td>{{list.username}}</td>
+        <td>{{list.email}}</td>
+        <td>{{list.phone}}</td>
+        <td> 
+            <span class="glyphicon glyphicon-pencil" (click)="editList(list)"></span>
+            <span class="glyphicon glyphicon-eye-open" (click)="viewList(list)"></span>
+            <span class="glyphicon glyphicon-trash" (click)="deleteList(list.id)"></span>
+            </td>
+      </tr>
+     </tbody>
+  </table>
+<button class="btn btn-primary" (click)="popup('yes','no')"> Popup </button>
+
+<view-list *ngIf="loadData" 
+[viewData]="viewData"></view-list>
+
+<edit-row *ngIf="users" [users]="users"></edit-row>

@@ -1,0 +1,80 @@
+<!-- <ul class="nav nav-pills">
+<li [class.active]="viewMode === 'tab1'"><a (click)="viewMode = 'tab1'"> TAB 1</a></li>
+<li [class.active]="viewMode === 'tab2'"><a (click)="viewMode = 'tab2'"> TAB 2</a></li>
+</ul>
+
+<div [ngSwitch]="viewMode">
+<div *ngSwitchCase="'tab1'"> <h1> Tab 1 </h1> </div>
+<div *ngSwitchCase="'tab2'">  <h1> Tab 2 </h1> </div>
+</div> -->
+
+<div class="row" >
+  <div class="" *ngIf="dataList">
+  <div class="col-md-4 ad-padMar blue">
+    <div class="text-center">
+      <div class="title-font">BUDGET AMOUNT</div>
+      <h1> {{dataList.budget}}</h1>
+    </div>
+  </div>
+  <div class="col-md-4 ad-padMar green">
+    <div class="text-center">
+      <div class="title-font">INCOME AMOUNT</div>
+      <h3> {{dataList.total.inc}}</h3>
+    </div>
+  </div>
+  <div class="col-md-4 ad-padMar red">
+    <div class="text-center">
+      <div class="title-font">EXPENCE AMOUNT</div>
+      <h3> <span>{{dataList.total.exp}} </span> <span class="percen" *ngIf="!dataList.total.inc == -1">--</span> <span class="percen" *ngIf="dataList.total.inc > 0">{{dataList.percentage}}%</span> </h3>
+    </div>
+  </div>
+  <div class="col-md-6 col-md-offset-3 text-center" style="margin-bottom: 35px;">
+    <form #f="ngForm" (ngSubmit)="submitForm(f)" novalidate>
+      <div class="form-inline">
+        <div class="form-group">
+          <select class="form-control" name="type" [(ngModel)]="type">
+            <option value="inc"> + </option>
+            <option value="exp"> - </option>
+          </select>
+        </div>
+        <div class="form-group">
+
+          <input type="text" class="form-control"  name="describtion" placeholder="Describtion" [(ngModel)]="describtion" required/>
+        </div>
+        <div class="form-group">
+          <input type="number" class="form-control" name="value"  placeholder="Amount" [(ngModel)]="value" required/>
+        </div>
+        <div class="form-group">
+          <button type="submit" [disabled]="f.invalid" class="btn btn-success">Add</button>
+        </div>
+      </div>
+ 
+    </form>
+  </div>
+
+
+  <div class="row">
+  <div class="col-lg-6"> 
+
+      <div class="list-row" *ngFor="let list of dataList.addItem.inc; let i = index" >
+  <div class="col-md-8"> {{list.describtion}}</div>
+  <div class="col-md-3 text-right"> <span class="g-txt"> +{{list.value}} </span> </div>
+  <div class="col-md-1 pull-right"><a (click)="deleteItem(i)"><span class="glyphicon glyphicon-remove-circle delIcon" aria-hidden="true"></span></a></div>
+      </div>
+    </div>
+
+
+
+  <div class="col-lg-6"> 
+     
+          <div  class="list-row" *ngFor="let list of dataList.addItem.exp; let i = index" >
+      <div class="col-md-8"> {{list.describtion}}</div>
+      <div class="col-md-3 text-right"> <span class="r-txt">-{{list.value}}</span> </div>
+      <div class="col-md-1 pull-right"><a class="" (click)="deleteItem2(i)"><span class="glyphicon glyphicon-remove-circle delIcon" aria-hidden="true"></span> </a></div>
+          </div>
+      
+        </div>
+    </div>
+  </div>
+
+</div>

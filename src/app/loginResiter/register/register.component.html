@@ -1,0 +1,45 @@
+<form class="formlist" [formGroup]="RegisterForm"  (ngSubmit)="register(RegisterForm.value)">
+    <div class="form-group">
+        <input type="text" 
+        name="username" 
+        class="form-control" 
+        formControlName="username"
+        placeholder="Username">
+    </div>
+    <div class="form-group">
+        <input type="email"
+        formControlName="email"
+        name="email"
+        class="form-control" 
+        placeholder="Email Address">
+        <div class="alert alert-danger" *ngIf="RegisterForm.controls['email'].hasError('required') && RegisterForm.controls['email'].dirty && RegisterForm.controls['email'].touched"> Please enter email id </div>
+     <div class="alert alert-danger" 
+     *ngIf="RegisterForm.controls['email'].hasError('pattern')">
+     Enter correct format
+    </div>
+    </div>
+    <div class="form-group">
+        <input type="password" 
+        name="password"
+        formControlName="password"
+        class="form-control" 
+        placeholder="Password">
+    </div>
+    <div class="form-group">
+        <input type="password"
+        formControlName="confirmpassword"
+        name="confirm-password" 
+        class="form-control" 
+        placeholder="Confirm Password">
+    </div>
+    <div *ngIf="RegisterForm.errors?.mismatch"> Password not matches </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                    <button type="submit" 
+          class="btlg btn btn-primary" 
+          [disabled]="!RegisterForm.valid">Register</button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,39 @@
+<ul class="list-group">    
+        <li class="list-group-item"  
+        [ngClass]="{'active':selecItem == list}" 
+        
+        style="cursor: pointer;" 
+        *ngFor="let list of listData | paginate : { itemsPerPage:3, currentPage:curpage, id : 1, totalItems:12}" 
+        (click)="listShow(list)" >
+            
+                <div class="media">
+                        <div class="media-left">
+                          <a>
+                            <img class="media-object" 
+                            [src]="list.avatar"
+                            style="width: 100px; height: 100px;"> </a>
+                          
+                        </div>
+                        <div class="media-body">
+                          <h4 class="media-heading">{{list.last_name}}</h4>
+                          <p> {{list.first_name}}</p> 
+                        <!-- <div class="list-grid" *ngFor="let sublist of list[address]; let i = index">
+                            <span class="badge">{{sublist.city}}</span>
+                            <span class="badge">{{sublist.zipcode}}</span>
+                            <span class="badge">{{sublist.street}}</span>
+                            </div>   -->
+                        </div>
+                      
+                      </div>
+                      
+        </li>
+       </ul>
+  
+       <pagination-controls 
+      (pageChange) = "getServerData($event)" 
+
+  		id="1"
+			>
+		</pagination-controls>
+    <p class="load-contain" *ngIf="loaderSection">Loding....</p>
+{{curpage}}

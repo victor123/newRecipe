@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default ">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="collapsed navbar-toggle" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">Brand</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li  routerLinkActive="active">
+          <a routerLink="recipe">Home</a>
+        </li>
+        <li  routerLinkActive="active">
+          <a routerLink="shopping">Shopping</a>
+        </li>
+        <li routerLinkActive="active"> <a routerLink="filter"> Filter Grid </a> </li>
+        <li routerLinkActive="active"> <a routerLink="tab"> Tab section </a></li>
+      </ul>
+      <p class="navbar-text navbar-right"> 
+      <a class="navbar-link" routerLink="login" (click)="showLg('login')" >Login</a>
+      <a class="navbar-link" routerLink="login" (click)="showLg('register')">Sign Up</a>
+     </p>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,33 @@
+<div class="top">
+  <select  (change)="fiterText = $event.target.value">
+    <option *ngFor="let lpt of select1 | unique" [value]="lpt"> {{lpt}} </option>
+  </select>
+  <select  (change)="fiterText = $event.target.value">
+      <option [value]="null" [disabled]="true" [selected] = 'true'>Select option </option>
+    <option *ngFor="let lpt of select2 | unique " [value]="lpt" > {{lpt}} </option>
+  </select>
+  <select  (change)="fiterText = $event.target.value">
+        <option [value]="null" [disabled]="true" [selected] = 'true'>Select option </option>
+    <option *ngFor="let lpt of select3 | unique " [value]="lpt"> {{lpt}} </option>
+
+  </select>
+  <select  (change)="fiterText = $event.target.value">
+        <option [value]="null" [disabled]="true" [selected] = 'true'>Select option </option>
+    <option *ngFor="let lpt of select4 | unique " [value]="lpt"> {{lpt}} </option>
+
+  </select>
+  <!-- <input type="text" [(ngModel)]="fiterText"> -->
+
+</div>
+<div class="bottom">
+  <div class="list" *ngFor="let list of listData | filterPipeList:fiterText">
+    <h3> title </h3>
+    <div class="des">{{list.description}} </div>
+    <div class="list-c"> {{list.category}} </div>
+    <div class="list-c"> {{list.price}} </div>
+    <div class="list-c"> {{list.availableQuantity}} </div>
+    <div class="list-c">{{list.daysToShip}} </div>
+    <div class="list-c">{{list.warranty}} </div>
+  </div>
+
+</div>

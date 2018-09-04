@@ -1,0 +1,47 @@
+
+ <div *ngIf="errorMessage" class="alert alert-danger">{{message}} </div>
+<form class="formlist" [formGroup]="LoginForm" (ngSubmit)="onSubmit(LoginForm.value)">
+  <div class="form-group">
+    <input type="text" 
+    name="email" 
+    class="form-control"
+    formControlName="email"
+    placeholder="Username"/>
+    <div class="alert alert-danger" *ngIf="LoginForm.controls['email'].hasError('required') && LoginForm.controls['email'].dirty && LoginForm.controls['email'].touched"> Please enter the name </div>
+    <div class="alert alert-danger" *ngIf="LoginForm.controls['email'].hasError('minlength')">Should be minimun 3  </div>
+    <div class="alert alert-danger" *ngIf="LoginForm.controls['email'].hasError('maxlength')"> Maximum 27 letter allowed</div>
+  </div>
+  <div class="form-group">
+    <input type="password" 
+    name="password" 
+    class="form-control"
+    formControlName="password"
+    placeholder="Password"/>
+  </div>
+  <div class="form-group text-center">
+    <input type="checkbox"
+    class="" 
+    name="remember" >
+    <label for="remember"> Remember Me</label>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+          <button type="submit" 
+          class="btlg btn btn-primary" 
+          [disabled]="!LoginForm.valid">Submit</button>
+          
+
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="text-center">
+          <a href="#"  class="forgot-password">Forgot Password?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

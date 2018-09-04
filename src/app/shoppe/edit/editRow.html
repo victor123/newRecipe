@@ -1,0 +1,99 @@
+<form [formGroup]="EditForm" (ngSubmit)="onSubmit(EditForm.value)">
+  <div class="col-md-12">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="users.name" name="name" formControlName="name" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="username">username</label>
+        <input type="text"  [(ngModel)]="users.username" name="username" formControlName="username"  class="form-control">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="email">email</label>
+        <input type="email"   [(ngModel)]="users.email" name="email" formControlName="email" class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+      <div class="col-md-12"> <label for="street"> Address</label> </div>
+      <div formGroupName="address"> 
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="street">street</label>
+        <input type="text"  [(ngModel)]="users.address.street" name="street" formControlName="street" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="suite">suite</label>
+        <input type="text"   [(ngModel)]="users.address.suite" name="suite" formControlName="suite" class="form-control">
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="city">city</label>
+        <input type="text" [(ngModel)]="users.address.city" name="city" formControlName="city" class="form-control">
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="zipcode">zipcode</label>
+        <input type="number"  [(ngModel)]="users.address.zipcode" name="zipcode" formControlName="zipcode" class="form-control">
+      </div>
+    </div>
+
+
+        <div formGroupName="geo">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="phone">Lan</label>
+            <input type="number"  [(ngModel)]="users.address.geo.lng" name="lng" formControlName="lng" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="website">Lat</label>
+            <input type="text"   [(ngModel)]="users.address.geo.lat" name="lat" formControlName="lat"  class="form-control">
+          </div>
+        </div>
+      </div>
+    
+</div>
+
+  </div>
+
+  <div class="col-md-12">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="phone">phone</label>
+        <input type="text"  [(ngModel)]="users.phone" name="phone" formControlName="phone" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="website">website</label>
+        <input type="text"   [(ngModel)]="users.website" name="website" formControlName="website"  class="form-control">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="email">company</label>
+        <div formGroupName = "company" > 
+        <input type="text"  [(ngModel)]="users.company.name" name="name" formControlName="name"  class="form-control">
+        <input type="text"  [(ngModel)]="users.company.catchPhrase" name="catchPhrase" formControlName="catchPhrase" class="form-control">
+        <input type="text"  [(ngModel)]="users.company.bs" name="bs" formControlName="bs" class="form-control">
+    </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-default" [disabled]="!EditForm.valid" >Submit</button>
+</form>

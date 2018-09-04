@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-login">
+        <div class="panel-heading" >
+          <div class="row">
+            <div class="col-xs-6">
+              <a (click)="onSelect('login')"
+              [ngClass]="{'active':LoadComponent == 'login'}">Login</a>
+            </div>
+            <div class="col-xs-6">
+              <a (click)="onSelect('register')" [ngClass]="{'active':LoadComponent == 'register'}" >Register</a>
+            </div>
+          </div>
+         
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <login-component *ngIf="LoadComponent === 'login'"></login-component>
+              <register-component *ngIf="LoadComponent === 'register'"></register-component>
+
+            </div>
+          </div>
+        </div>
+        <button (click)="trigerAlert()"> popup</button>
+      </div>
+    </div>
+  </div>
+</div>

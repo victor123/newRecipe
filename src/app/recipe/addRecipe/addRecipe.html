@@ -1,0 +1,41 @@
+
+<form [formGroup]="myForm" >
+    <div class="form-group" [ngClass]="{'has-error':myForm.controls['first_name'].touched}">
+      <label for="rec"> Name </label>
+      <input type="text" 
+      formControlName="first_name" 
+      class="form-control">
+      <div class="error" *ngIf="myForm.controls['first_name'].hasError('required') && myForm.controls['first_name'].dirty && myForm.controls['first_name'].touched"> Enter the Name</div> 
+      <div class="error" *ngIf="myForm.controls['first_name'].hasError('maxlength')"> Maxium 15 letters allowed </div>  
+     <div class="error" *ngIf="myForm.controls['first_name'].hasError('minlength')"> Minium 3 letters </div>
+
+
+    </div>
+    <div class="form-group">
+      <label for="img">Last Name </label>
+      <input type="text" 
+      formControlName="last_name" 
+      class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="img">Avatar </label>
+      <input type="text" 
+      formControlName="avatar" 
+      class="form-control">
+    </div>
+    <!-- <div class="form-group">    
+            <label for="img">Recipe list </label>
+            <input type="text"
+            formControlName="list" 
+            class="form-control">
+          </div> -->
+
+    <button type="submit" class="btn btn-primary" (click)="onSubmit(myForm.value)" [disabled]="!myForm.valid">Submit</button>
+    <button class="btn btn-danger" (click)="reset()">Reset</button>
+  </form>
+
+  <div *ngFor="let values of formvalue">
+  <p> {{values.first_name}} </p>
+  <p> {{values.last_name}} </p>
+   <p> {{values.avatar}} </p>
+  </div>

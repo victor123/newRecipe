@@ -1,0 +1,30 @@
+{
+  "data": [
+    {
+      "exp": [
+        {
+          "id": 0,
+          "description": "Test1",
+          "value": 250,
+          "percentage": 0
+        }
+      ],
+      "inc": [
+        {
+          "id": 0,
+          "description": "Test2",
+          "value": 140,
+          "percentage": 0
+        }
+      ],
+      "total": [
+        {
+          "exp": 0,
+          "inc": 0
+        }
+      ],
+      "budget": 0,
+      "percentage": 0
+    }
+  ]
+}
